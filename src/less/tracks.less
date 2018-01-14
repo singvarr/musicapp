@@ -1,0 +1,91 @@
+.tracks {
+	padding: 30px 0;
+
+	.search-tracks {
+		padding-left: 20px;
+		.text(24px);
+
+		button {
+			width: 100px;
+			height: 40px;
+			margin-left: 15px;
+			border: solid 1px @text-color;
+			.text(20px);
+			border-radius: 3px;
+			outline: none;
+			background-color: transparent;
+
+			&:hover {
+				border-color: @hov-color;
+				color: @hov-color;
+			}
+		}
+	}
+
+	.loading,
+	.error {
+		padding-left: 20px;
+		.text(16px, @minor-font);
+	}
+
+	.tracks-list {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		padding-top: 20px;
+
+		.track {
+			flex-basis: 300px;
+			padding: 0 20px;
+			box-sizing: border-box;
+			text-align: center;
+			
+			&:hover {
+				background-color: lighten(@bg-color, 20%);
+			}
+
+			&-img {
+				padding: 20px 0;
+
+				&:hover img {
+					transform: scale(1.05);
+				}
+
+				img {
+					transition: transform 0.4s ease-out;
+				}
+			}
+
+			&-info {
+				.title {
+					padding: 15px 0;
+					.text(24px);
+				}
+
+				.performer {
+					padding: 5px 0;
+					.text(19px, @minor-font)
+				}
+
+				.tags {
+					padding: 10px;
+					font-size: 0;
+
+					li {
+						display: inline-block;
+						margin-right: 5px;
+						padding: 5px;
+						border: solid 1px @text-color;
+						.text(12px);
+						border-radius: 5px;
+
+						&:last-child {
+							margin-right: 0;
+						}
+					}
+				}
+			}
+		}
+	}
+}
