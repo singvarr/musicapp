@@ -1,0 +1,70 @@
+header {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	height: 60px;
+	border-bottom: solid 1px @text-color;
+
+	.logo {
+		margin-left: 10px;
+		.text(40px);
+
+		img {
+			width: auto;
+			max-height: 100%;
+		}
+	}
+
+	.donate {
+		position: relative;
+		align-self: center;
+		height: 30px;
+		margin-right: 25px;
+		padding: 5px 10px;
+		border: solid 1px @text-color;
+		.text(24px, @minor-font);
+		line-height: 30px;
+		transition: all 0.7s ease-in-out;
+		border-radius: 5px;
+		text-decoration: none;
+		
+		&::before,
+		&::after {
+			display: none;
+			position: absolute;
+			background-color: @bg-color;
+		}
+
+		&::before {
+			bottom: -25px;
+			right: 20px;
+			content: "";
+  			border-left: 10px solid transparent;
+  			border-right: 10px solid transparent;
+  			border-bottom: 10px solid @hov-color;
+		}
+
+		&::after {
+			right: 0;
+			bottom: -160px;
+			content: "Our project is young. Support us for our development";
+			width: 180px;
+			padding: 7px;
+			border: solid 1px @hov-color;
+			.text(20px, @minor-font, @hov-color);
+			text-align: justify;
+			border-radius: 5px;
+		}
+
+		&:hover {
+			border-color: @hov-color;
+			color: @hov-color;
+
+			&::before, 
+			&::after {
+				display: block;
+			}
+		}
+	}	
+}
