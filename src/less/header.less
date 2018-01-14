@@ -25,10 +25,19 @@ header {
 		border: solid 1px @text-color;
 		.text(24px, @minor-font);
 		line-height: 30px;
-		transition: all 0.7s ease-in-out;
 		border-radius: 5px;
 		text-decoration: none;
-		
+			
+		&:hover {
+			border-color: @hov-color;
+			color: @hov-color;
+			
+			&::before,
+			&::after {
+				display: block;
+			}
+		}
+
 		&::before,
 		&::after {
 			display: none;
@@ -47,24 +56,14 @@ header {
 
 		&::after {
 			right: 0;
-			bottom: -160px;
+			bottom: -130px;
 			content: "Our project is young. Support us for our development";
 			width: 180px;
 			padding: 7px;
 			border: solid 1px @hov-color;
-			.text(20px, @minor-font, @hov-color);
+			.text(15px, @minor-font, @hov-color);
 			text-align: justify;
 			border-radius: 5px;
-		}
-
-		&:hover {
-			border-color: @hov-color;
-			color: @hov-color;
-
-			&::before, 
-			&::after {
-				display: block;
-			}
-		}
+		}	
 	}	
 }
