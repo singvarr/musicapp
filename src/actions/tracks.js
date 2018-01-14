@@ -3,7 +3,7 @@ export const GET_TOP_TRACKS_SUCCESS = "GET_TOP_TRACKS_SUCCESS";
 export const GET_TOP_TRACKS_ERROR = "GET_TOP_TRACKS_ERROR";
 
 const PROXY_URL = "https://cors-anywhere.herokuapp.com/";
-const TOP_TRACKS_URL = "https://rss.itunes.apple.com/api/v1/ua/apple-music/top-songs/all/100/explicit.json";
+const TOP_TRACKS_URL = "https://rss.itunes.apple.com/api/v1/ua/itunes-music/top-songs/all/100/explicit.json";
 
 export function requestTracks() {
 	return {
