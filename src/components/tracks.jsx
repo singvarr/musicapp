@@ -17,7 +17,7 @@ function Tracks(props) {
 							<img src={item.artworkUrl100}/>
 						</div>
 						<div className="track-info">
-							<div className="title">{i + 1}. {item.collectionName}</div>
+							<div className="title">{i + 1}. {item.name}</div>
 							<div className="performer">{item.artistName}</div>
 							<ul className="tags">
 								{item.genres.map((genre, i) => <li key={i} className="tag">{genre.name}</li>)}
