@@ -5,7 +5,7 @@ import {
 
 const initialState = {
 	tracks: [],
-	errorMessage: ""
+	hasError: false
 };
 
 export function getTopTracks(state = initialState, action) {
@@ -14,7 +14,7 @@ export function getTopTracks(state = initialState, action) {
 			var payload = {tracks: action.payload};
 			break;
 		case GET_TOP_TRACKS_ERROR: 
-			payload = {errorMessage: action.error};
+			payload = {hasError: !state.hasError};
 			break;
 		default: 
 			payload = {};
