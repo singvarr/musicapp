@@ -5,7 +5,7 @@ import { getTopTracks } from "../actions";
 function mapStateToProps(state) {
 	return {
 		tracks: state.trackList.tracks,
-		errorMessage: state.trackList.errorMessage,
+		hasError: state.trackList.hasError,
 		isFetching: state.isFetching
 	}
 }
