@@ -11,14 +11,19 @@ export function requestTracks() {
 	}
 }
 
-export const getTopTracks = () => dispatch => {
+export const getTopTracks = () => (dispatch, getState) => {
+	if(getState().trackList.hasError) dispatch(getTopTracksError());
+
 	dispatch(requestTracks());
 	return fetch(PROXY_URL + TOP_TRACKS_URL, {mode: "cors"})
 		.then(res => res.json())
 		.then(data => data.feed.results)
 		.then(tracks => dispatch(getTopTracksSuccess(tracks)))
 		.then(() => dispatch(requestTracks()))
-		.catch(error => getTopTracksError(error))
+		.catch(() => {
+			dispatch(requestTracks());
+			dispatch(getTopTracksError());
+		})
 }
 
 export function getTopTracksSuccess(payload) {
@@ -28,9 +33,8 @@ export function getTopTracksSuccess(payload) {
 	}
 }
 
-export function getTopTracksError(error) {
+export function getTopTracksError() {
 	return {
-		type: GET_TOP_TRACKS_ERROR,
-		error
+		type: GET_TOP_TRACKS_ERROR
 	}
 }
