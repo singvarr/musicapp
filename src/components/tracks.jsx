@@ -1,4 +1,5 @@
 import React from "react";
+import TagListContainer from "../containers/TagListContainer";
 
 function Tracks(props) {
 	return (
@@ -7,6 +8,7 @@ function Tracks(props) {
 				Look for good music? Explore our top 100!
 				<button onClick={props.onGetTopTracks}>Get it!</button>
 			</div>
+			<TagListContainer/>
 			{props.isFetching ?
 			<div className="loading">Loading...</div> :
 			!props.hasError ?
@@ -20,7 +22,9 @@ function Tracks(props) {
 							<div className="title">{i + 1}. {item.name}</div>
 							<div className="performer">{item.artistName}</div>
 							<ul className="tags">
-								{item.genres.map((genre, i) => <li key={i} className="tag">{genre.name}</li>)}
+								{item.genres.map((genre, i) => <li key={i}
+									onClick={() => props.onAddTagInFilter(genre.name)} 
+									className="tag">{genre.name}</li>)}
 							</ul>
 						</div>
 					</div>
