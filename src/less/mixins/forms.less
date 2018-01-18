@@ -1,0 +1,17 @@
+.block(@width, @height, @border: null, @b-rad: null) {
+	width: @width;
+	height: @height;
+	border: @border;
+	border-radius: @b-rad;
+}
+
+.button(@bg-color: transparent, @color: @hov-color) {
+	cursor: pointer;
+	outline: none;
+	background-color: @bg-color;
+
+	&:hover {
+		border-color: @color;
+		color: @color;
+	}
+}
