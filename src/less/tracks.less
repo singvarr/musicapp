@@ -1,3 +1,5 @@
+@import url("./tags.less");
+
 .tracks {
 	padding: 90px 0;
 
@@ -73,22 +75,7 @@
 				}
 
 				.tags {
-					padding: 10px;
-					font-size: 0;
-
-					li {
-						display: inline-block;
-						margin: 0 5px 5px 0;
-						padding: 5px;
-						border: solid 1px @text-color;
-						.text(12px);
-						border-radius: 5px;
-						cursor: pointer;
-
-						&:last-child {
-							margin-right: 0;
-						}
-					}
+					padding-bottom: 10px;
 				}
 			}
 		}
@@ -102,3 +89,5 @@
 		margin: 10px 0 0 0;
 	}
 }
+
+@import url("./tagPanel.less");
