@@ -1,0 +1,28 @@
+.navigation ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	height: 100%;
+
+	li {
+		margin-right: 20px;
+		line-height: 60px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		a {
+			display: block;
+			.text(20px);
+
+			&:hover {
+				color: @hov-color;
+			}
+		}
+
+		.active {
+			text-decoration: underline;
+		}
+	}
+}
