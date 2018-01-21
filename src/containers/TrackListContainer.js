@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Tracks from "../components/tracks.jsx";
+import TrackList from "../components/trackList.jsx";
 import { getTopTracks, filterTracksByTags } from "../actions";
 import { getFilteredTracks } from "../filters";
  
@@ -18,6 +18,6 @@ function mapDispatchToProps(dispatch) {
 	}
 }
 
-const TracksContainer = connect(mapStateToProps, mapDispatchToProps)(Tracks);
+const TrackListContainer = connect(mapStateToProps, mapDispatchToProps)(TrackList);
 
-export default TracksContainer;
+export default TrackListContainer;

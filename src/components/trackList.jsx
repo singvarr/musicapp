@@ -1,7 +1,8 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import TagListContainer from "../containers/TagListContainer";
 
-function Tracks(props) {
+function TrackList(props) {
 	return (
 		<section className="tracks">
 			<div className="search-tracks">
@@ -15,9 +16,11 @@ function Tracks(props) {
 			<div className="tracks-list"> {props.tracks.map((item, i) => {
 				return (
 					<div className="track" key={i}>
-						<div className="track-img">
-							<img src={item.artworkUrl100}/>
-						</div>
+						<Link to={`tracks/${item.artistId}`}>
+							<div className="track-img">
+								<img src={item.artworkUrl100}/>
+							</div>
+						</Link>
 						<div className="track-info">
 							<div className="title">{i + 1}. {item.name}</div>
 							<div className="performer">{item.artistName}</div>
@@ -36,4 +39,4 @@ function Tracks(props) {
 	)	
 }
 
-export default Tracks;
+export default TrackList;
