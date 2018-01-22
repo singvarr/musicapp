@@ -20,6 +20,11 @@ header {
 		}
 	}
 
+	nav {
+		flex-grow: 1;
+		margin: 0 20px;
+	}
+
 	.donate {
 		position: relative;
 		align-self: center;
@@ -75,7 +80,7 @@ header {
 @media (max-width: 600px) {
 	header {
 		.logo {
-			.text(30px);
+			font-size: 0;
 		}
 
 		.donate {
@@ -84,3 +89,5 @@ header {
 		}
 	}
 }
+
+@import url("navigation.less");
