@@ -9,9 +9,9 @@ const initialState = {
 	trackList: {
 		tracks: loadState(),
 		hasError: false,
-		tags: []
 	},
 	isFetching: false,
+	tags: []
 }
 
 const store = createStore(reducer, initialState, applyMiddleware(thunk, logger));
