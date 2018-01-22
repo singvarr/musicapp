@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { deleteTag, deleteAllTags } from "../actions";
-import TagList from "../components/tagList.jsx";
+import TagFilter from "../components/tagFilter.jsx";
 
 function mapStateToProps(state) {
 	return {
@@ -15,6 +15,6 @@ function mapDispatchToProps(dispatch) {
 	}
 }
 
-const TagListContainer = connect(mapStateToProps, mapDispatchToProps)(TagList);
+const TagListContainer = connect(mapStateToProps, mapDispatchToProps)(TagFilter);
 
 export default TagListContainer;

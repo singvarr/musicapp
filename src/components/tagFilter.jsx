@@ -1,18 +1,16 @@
 import React from "react";
 
-function TagList(props) {
+function TagFilter(props) {
 	return (
 		props.tags.length ?
 		<div className="tag-panel">
-			Choose tracks of your favorite genre
+			Choose tracks of your favorite genre:
 			<ul className="tags">
-				{
-					props.tags.map((tag, index) => {
-						return <li 
+				{props.tags.map((tag, index) => {
+					return <li 
 						onClick={() => props.onRemoveTag(tag)}
 						key={index}>{tag}</li>
-					})
-				}
+				})}
 			</ul>
 			<button 
 				onClick={() => props.onClearAllTags()}
@@ -22,4 +20,4 @@ function TagList(props) {
 	)
 }
 
-export default TagList;
+export default TagFilter;
