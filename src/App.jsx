@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Route, Switch, hashHistory } from "react-router-dom";
 import store from "./store/index.js";
 
-import TracksContainer from "./containers/TracksContainer";
+import TrackListContainer from "./containers/TrackListContainer";
 import Main from "./components/main.jsx";
 import TrackContainer from "./containers/TrackContainer";
 
@@ -17,7 +17,7 @@ function App() {
 					<main>
 					<Switch>
 						<Route path="/" exact component={Main}/>
-						<Route path="/tracks" exact component={TracksContainer}/>
+						<Route path="/tracks" exact component={TrackListContainer}/>
 						<Route path="/tracks/:id" component={TrackContainer}/>
 					</Switch>
 					</main>
