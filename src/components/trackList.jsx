@@ -1,6 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
-import TagListContainer from "../containers/TagListContainer";
+import TagFilterContainer from "../containers/TagFilterContainer";
 
 function TrackList(props) {
 	return (
@@ -9,7 +9,7 @@ function TrackList(props) {
 				Look for good music? Explore our top 100!
 				<button onClick={props.onGetTopTracks}>Get it!</button>
 			</div>
-			<TagListContainer/>
+			<TagFilterContainer/>
 			{props.isFetching ?
 			<div className="loading">Loading...</div> :
 			!props.hasError ?
