@@ -1,2 +1,2 @@
 export * from "./tracks";
-export * from "./tags"
+export * from "./tags";
