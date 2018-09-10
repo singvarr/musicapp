@@ -1,30 +1,30 @@
 import React, { Fragment } from "react";
-import Header from "./Header";
 import { Provider } from "react-redux";
-import { BrowserRouter, Route, Switch, hashHistory } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import store from "../state/store";
 
-import TrackListContainer from "../state/containers/TrackListContainer";
+import Header from "./Header";
 import Main from "./Main";
-import TrackContainer from "../state/containers/TrackContainer";
+import TrackList from "./TrackList";
+import Track from "./Track";
 
 function App() {
-	return (
-		<Provider store={store}>
-			<BrowserRouter>
-				<Fragment>
-					<Header/>
-					<main>
-					<Switch>
-						<Route path="/" exact component={Main}/>
-						<Route path="/tracks" exact component={TrackListContainer}/>
-						<Route path="/tracks/:id" component={TrackContainer}/>
-					</Switch>
-					</main>
-				</Fragment>
-			</BrowserRouter>
-		</Provider>
-	)
+    return (
+        <Provider store={store}>
+            <BrowserRouter>
+                <Fragment>
+                    <Header />
+                    <main>
+                        <Switch>
+                            <Route path="/" exact component={Main} />
+                            <Route path="/tracks" exact component={TrackList} />
+                            <Route path="/tracks/:id" component={Track} />
+                        </Switch>
+                    </main>
+                </Fragment>
+            </BrowserRouter>
+        </Provider>
+    );
 }
 
 export default App;
