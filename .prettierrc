@@ -1,0 +1,19 @@
+{
+    "useTabs": false,
+    "printWidth": 80,
+    "tabWidth": 4,
+    "singleQuote": false,
+    "bracketSpacing": true,
+    "trailingComma": "es5",
+    "jsxBracketSameLine": false,
+    "parser": "babylon",
+    "semi": true,
+    "overrides": [
+        {
+            "files": "*.less",
+            "options": {
+                "parser": "less"
+            }
+        }
+    ]
+}

@@ -1,3 +1,19 @@
 {
-	"extends": "react"
+	"extends": [
+		"react",
+		"prettier"
+	],
+	"plugins": [
+		"prettier"
+	],
+	"rules": {
+		"prettier/prettier": 1
+	},
+	"settings": {
+		"import/resolver": {
+			"webpack": {
+				"config": "webpack.config.js"
+			}
+		}
+	}
 }
