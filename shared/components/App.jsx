@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
-import Header from "./components/header.jsx";
+import Header from "./Header";
 import { Provider } from "react-redux";
 import { BrowserRouter, Route, Switch, hashHistory } from "react-router-dom";
-import store from "./store/index.js";
+import store from "../state/store";
 
-import TrackListContainer from "./containers/TrackListContainer";
-import Main from "./components/main.jsx";
-import TrackContainer from "./containers/TrackContainer";
+import TrackListContainer from "../state/containers/TrackListContainer";
+import Main from "./Main";
+import TrackContainer from "../state/containers/TrackContainer";
 
 function App() {
 	return (
