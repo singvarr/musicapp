@@ -1,21 +1,20 @@
 {
-  "name": "music",
+  "name": "musicapp",
   "version": "1.0.0",
   "description": "app for music search",
-  "main": "src/index.js",
+  "main": "dist/server.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack -w & nodemon"
   },
   "author": "Ihor Sokolov",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.16.3",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
-    "react-router-redux": "^5.0.0-alpha.9",
     "redux": "^3.7.2",
-    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
@@ -23,21 +22,27 @@
     "babel-eslint": "^8.2.1",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-nodejs": "^6.0.0",
     "babel-preset-react": "^6.24.1",
+    "cors": "^2.8.4",
     "css-loader": "^0.28.8",
     "eslint": "^4.16.0",
+    "eslint-config-prettier": "^3.0.1",
     "eslint-config-react": "^1.1.7",
     "eslint-loader": "^1.9.0",
-    "eslint-plugin-react": "^7.6.1",
+    "eslint-plugin-prettier": "^2.6.2",
+    "eslint-plugin-react": "^7.11.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.6",
     "html-webpack-plugin": "^2.30.1",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
+    "nodemon": "^1.18.4",
     "postcss-loader": "^2.0.10",
+    "prettier": "^1.14.2",
     "style-loader": "^0.19.1",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.10.1",
-    "webpack-merge": "^4.1.1"
+    "webpack": "^3.12.0",
+    "webpack-node-externals": "^1.7.2"
   }
 }
