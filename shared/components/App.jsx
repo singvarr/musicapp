@@ -10,20 +10,16 @@ import Track from "./Track";
 
 function App() {
     return (
-        <Provider store={store}>
-            <BrowserRouter>
-                <Fragment>
-                    <Header />
-                    <main>
-                        <Switch>
-                            <Route path="/" exact component={Main} />
-                            <Route path="/tracks" exact component={TrackList} />
-                            <Route path="/tracks/:id" component={Track} />
-                        </Switch>
-                    </main>
-                </Fragment>
-            </BrowserRouter>
-        </Provider>
+        <Fragment>
+            <Header />
+            <main>
+                <Switch>
+                    <Route path="/" exact component={Main} />
+                    <Route path="/tracks" exact component={TrackList} />
+                    <Route path="/tracks/:id" component={Track} />
+                </Switch>
+            </main>
+        </Fragment>
     );
 }
 
