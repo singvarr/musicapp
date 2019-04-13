@@ -13,7 +13,7 @@
             "components/*": ["src/components/*"],
             "reducers/*": ["src/store/reducers/*"],
             "store/*": ["src/store/*"],
-            "types/*": ["types/*"]
+            "types/*": ["src/types/*"]
         },
         "outDir": "./dist/0",
         "removeComments": true,

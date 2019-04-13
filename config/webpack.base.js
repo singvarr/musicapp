@@ -2,36 +2,24 @@ const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-
 require("dotenv").config();
+
 const PROJECT_ROOT = require("./root");
 
 const { NODE_ENV } = process.env;
 
 module.exports = {
-    entry: path.resolve(PROJECT_ROOT, "src", "index.js"),
+    entry: path.resolve(PROJECT_ROOT, "src", "index.tsx"),
     resolve: {
         extensions: [".ts", ".tsx", ".jsx", ".js", ".json"],
         alias: {
             assets: path.join(PROJECT_ROOT, "src", "assets"),
-            vendor: path.join(PROJECT_ROOT, "src", "vendor"),
-            fixtures: path.join(PROJECT_ROOT, "src", "fixtures"),
             store: path.join(PROJECT_ROOT, "src", "store"),
             actions: path.join(PROJECT_ROOT, "src", "store", "actions"),
-            constants: path.join(
-                PROJECT_ROOT,
-                "src",
-                "store",
-                "constants"
-            ),
+            constants: path.join(PROJECT_ROOT, "src", "store", "constants"),
             reducers: path.join(PROJECT_ROOT, "src", "store", "reducers"),
-            selectors: path.join(
-                PROJECT_ROOT,
-                "src",
-                "store",
-                "selectors"
-            ),
             components: path.join(PROJECT_ROOT, "src", "components"),
+            types: path.join(PROJECT_ROOT, "src", "types"),
             less: path.join(PROJECT_ROOT, "src", "less")
         }
     },
