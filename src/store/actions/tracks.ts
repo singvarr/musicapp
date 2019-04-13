@@ -34,13 +34,8 @@ const getTracks = (): ThunkAction<
     dispatch(getTracksLoading());
 
     return fetch(`${PROXY_URL}${TOP_TRACKS_URL}`, { mode: "cors" })
-        .then((res: Response) => {
-            const data: Promise<{
-                feed: { results: TrackType[] };
-            }> = res.json();
-            return data.feed.results;
-        })
-        .then(tracks => dispatch(getTracksSuccess(tracks)))
+        .then(res => res.json())
+        .then(data => dispatch(getTracksSuccess(data.feed.results)))
         .catch(() => dispatch(getTracksError()));
 };
 
