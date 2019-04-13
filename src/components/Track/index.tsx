@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
+import { RouteComponentProps } from "react-router";
 import TrackType from "types/track";
 import State from "types/state";
 
-interface TrackProps {
+interface TrackProps extends RouteComponentProps<{ id: string }> {
     track: TrackType;
 }
 
@@ -35,7 +36,7 @@ function Track(props: TrackProps) {
 
 function mapStateToProps(state: State, ownProps: TrackProps) {
     return {
-        track: state.trackList.tracks.find(
+        track: state.tracks.data.find(
             (track: TrackType) => track.artistId == ownProps.match.params.id
         )
     };
