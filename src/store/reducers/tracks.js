@@ -1,7 +1,7 @@
 import {
 	GET_TOP_TRACKS_SUCCESS,
 	GET_TOP_TRACKS_ERROR
-} from "../actions";
+} from "actions/tracks";
 
 const initialState = {
 	tracks: [],

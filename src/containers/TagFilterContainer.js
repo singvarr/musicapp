@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { deleteTag, deleteAllTags } from "../actions";
+import { deleteTag, deleteAllTags } from "actions/tags";
 import TagFilter from "../components/tagFilter.jsx";
 
 function mapStateToProps(state) {
