@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import TrackList from "../components/trackList.jsx";
-import { getTopTracks, filterTracksByTags } from "../actions";
+import { getTopTracks, filterTracksByTags } from "actions/tracks";
 import { getFilteredTracks } from "../filters";
  
 function mapStateToProps(state) {
