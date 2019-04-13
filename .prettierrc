@@ -1,8 +1,17 @@
 {
+    "parser": "typescript",
     "tabWidth": 4,
     "useTabs": false,
     "printWidth": 80,
     "singleQuote": false,
     "bracketSpacing": true,
-    "trailingComma": "none"
+    "trailingComma": "none",
+    "overrides": [
+        {
+            "files": "*.less",
+            "options": {
+                "parser": "less"
+            }
+        }
+    ]
 }

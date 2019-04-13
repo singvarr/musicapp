@@ -1,21 +1,7 @@
-import {createStore, applyMiddleware} from "redux";
+import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
-import logger from "redux-logger";
-
 import reducer from "reducers";
-import {loadState, saveState} from "./localStorage";
 
-const initialState = {
-	trackList: {
-		tracks: loadState(),
-		hasError: false,
-	},
-	isFetching: false,
-	tags: []
-}
-
-const store = createStore(reducer, initialState, applyMiddleware(thunk, logger));
-
-store.subscribe(() => saveState(store.getState().trackList.tracks));
+const store = createStore(reducer, applyMiddleware(thunk));
 
 export default store;
