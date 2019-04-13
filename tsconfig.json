@@ -4,9 +4,10 @@
         "allowSyntheticDefaultImports": true,
         "baseUrl": "./",
         "jsx": "react",
-        "noImplicitAny": true,
+        "lib": ["es2015"],
         "module": "es2015",
         "moduleResolution": "node",
+        "noImplicitAny": true,
         "paths": {
             "actions/*": ["src/store/actions/*"],
             "constants/*": ["src/store/constants/*"],
@@ -15,9 +16,9 @@
             "store/*": ["src/store/*"],
             "types/*": ["src/types/*"]
         },
-        "outDir": "./dist/0",
+        "outDir": "./dist",
         "removeComments": true,
-        "target": "es5",
+        "target": "es6",
         "sourceMap": true
     }
 }
