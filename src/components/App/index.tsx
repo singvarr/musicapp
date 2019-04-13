@@ -8,7 +8,7 @@ import TrackList from "components/TrackList";
 import Track from "components/Track";
 
 import store from "store/.";
-import "./less/index.less";
+import "less/index.less";
 
 function App() {
     return (

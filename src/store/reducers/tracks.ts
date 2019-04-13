@@ -16,9 +16,9 @@ function reducer(state: TracksState = initialState, action: TracksAction) {
         case GET_TRACKS_LOADING:
             return { ...state, isLoading: true };
         case GET_TRACKS_SUCCESS:
-            return { ...state, data: action.payload.tracks };
+            return { ...state, isLoading: false, data: action.payload.tracks };
         case GET_TRACKS_ERROR:
-            return { ...state, hasError: true };
+            return { ...state, isError: true };
         default:
             return state;
     }
