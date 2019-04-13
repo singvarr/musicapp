@@ -1,8 +1,8 @@
 {
-  "name": "music",
+  "name": "musicapp",
   "version": "1.0.0",
   "description": "app for music search",
-  "main": "src/index.js",
+  "main": "src/index.tsx",
   "scripts": {
     "build": "webpack --config ./config/webpack.prod.js",
     "start": "webpack-dev-server --config ./config/webpack.dev.js"
@@ -15,12 +15,14 @@
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
-    "react-router-redux": "^5.0.0-alpha.9",
-    "redux": "^3.7.2",
-    "redux-logger": "^3.0.6",
+    "redux": "^4.0.1",
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
+    "@types/react": "^16.8.13",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-redux": "^7.0.6",
+    "@types/react-router-dom": "^4.3.2",
     "@typescript-eslint/eslint-plugin": "^1.6.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-core": "^6.26.0",
