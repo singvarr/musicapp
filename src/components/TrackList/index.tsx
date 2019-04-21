@@ -5,12 +5,12 @@ import { ThunkDispatch } from "redux-thunk";
 import { Action } from "redux";
 
 // import TagFilter from "components/TagFilter";
-import getTracks from "actions/tracks";
-import State, { FetchStatus } from "types/state";
+import { getTracks } from "store/tracks";
+import State, { FetchStatus, GetTracks } from "types/state";
 import TrackType from "types/track";
 
 interface TrackListProps extends FetchStatus {
-    onGetTracks: () => void;
+    onGetTracks: GetTracks;
     tracks: TrackType[];
 }
 
