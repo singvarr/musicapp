@@ -1,5 +1,9 @@
 module.exports = {
-    extends: ["eslint:recommended", "plugin:react/recommended"],
+    extends: [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
     parser: "@typescript-eslint/parser",
     parserOptions: {
         ecmaFeatures: {
@@ -12,7 +16,7 @@ module.exports = {
     rules: {
         camelcase: "error",
         "max-len": "error",
-        indent: ["error"],
+        indent: ["error", 4, { SwitchCase: 1 }],
         quotes: "error",
         "object-curly-spacing": ["error", "always"],
         "eol-last": "error",
