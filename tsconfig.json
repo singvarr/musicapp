@@ -2,19 +2,20 @@
     "compilerOptions": {
         "allowJs": true,
         "allowSyntheticDefaultImports": true,
-        "baseUrl": "./",
+        "baseUrl": "./src",
         "jsx": "react",
         "lib": ["es2015", "dom"],
         "module": "es2015",
         "moduleResolution": "node",
         "noImplicitAny": true,
         "paths": {
-            "actions/*": ["src/store/actions/*"],
-            "constants/*": ["src/store/constants/*"],
-            "components/*": ["src/components/*"],
-            "reducers/*": ["src/store/reducers/*"],
-            "store/*": ["src/store/*"],
-            "types/*": ["src/types/*"]
+            "assets/*": ["assets/*"],
+            "components/*": ["components/*"],
+            "pages/*": ["pages/*"],
+            "fixtures/*": ["fixtures/*"],
+            "style/*": ["style/*"],
+            "store/*": ["store/*"],
+            "types/*": ["types/*"]
         },
         "outDir": "./dist",
         "removeComments": true,
