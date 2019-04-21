@@ -1,12 +1,12 @@
 import { ThunkAction } from "redux-thunk";
 import { Action } from "redux";
 import { ActionType, StateType } from "typesafe-actions";
-import reducer from "reducers/.";
+import reducer from "store/.";
 import {
     getTracksSuccess,
     getTracksError,
     getTracksLoading
-} from "actions/tracks";
+} from "store/tracks";
 import TrackType from "types/track";
 
 export interface FetchStatus {
