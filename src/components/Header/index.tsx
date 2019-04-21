@@ -1,17 +1,23 @@
 import React from "react";
+import injectSheet, { WithSheet, StyleCreator } from "react-jss";
 import Navigation from "components/Navigation";
+import styles from "./styles";
+import Theme from "types/theme";
 
-function Header() {
+function Header(props: WithSheet<StyleCreator<string, Theme>>): JSX.Element {
+    const { classes } = props;
+
     return (
-        <header>
-            <div className="logo">
-                <img src="/assets/img/logo.png" alt="logo" />
+        <header className={classes.wrapper}>
+            <div className={classes.logoWrapper}>
+                <img alt="logo" className={classes.logo} src="/img/logo.png" />
                 New Radio
             </div>
             <Navigation />
             <a
-                className="donate"
+                className={classes.donateLink}
                 href="https://www.liqpay.ua/ru/checkout/mynewtestradio"
+                rel="noopener noreferrer"
                 target="_blank"
             >
                 Donate
@@ -20,4 +26,4 @@ function Header() {
     );
 }
 
-export default Header;
+export default injectSheet(styles)(Header);
