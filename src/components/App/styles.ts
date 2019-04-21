@@ -1,6 +1,7 @@
-import theme from "./theme";
+import { Styles } from "react-jss";
+import Theme from "types/theme";
 
-const styles = {
+const styles = (theme: Theme): Styles => ({
     "@global body": {
         margin: 0,
         padding: 0,
@@ -17,10 +18,13 @@ const styles = {
     "@global a": {
         textDecoration: "none"
     },
-    "@font-face": {
-        fontFamily: "Oswald",
-        src: "url(assets/fonts/Oswald-Regular.ttf)"
+    main: {
+        margin: [0, 30],
+        paddingTop: 90,
+        fontFamily: theme.baseFont,
+        fontSize: 16,
+        color: theme.textColor
     }
-};
+});
 
 export default styles;
