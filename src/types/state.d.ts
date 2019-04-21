@@ -1,7 +1,7 @@
 import { ThunkAction } from "redux-thunk";
 import { Action } from "redux";
 import { ActionType, StateType } from "typesafe-actions";
-import reducer from "store/.";
+import { reducer } from "store/.";
 import {
     getTracksSuccess,
     getTracksError,
@@ -21,8 +21,11 @@ export type TracksAction = ActionType<
 export interface TracksState extends FetchStatus {
     data: TrackType[];
 }
+export type GetTracksResult = Promise<
+    ActionType<typeof getTracksSuccess | typeof getTracksError>
+>;
 export type GetTracks = ThunkAction<
-    Promise<ActionType<typeof getTracksSuccess | typeof getTracksError>>,
+    GetTracksResult,
     State,
     null,
     Action<string>

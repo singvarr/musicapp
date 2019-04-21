@@ -29,7 +29,8 @@ module.exports = {
         "react/button-has-type": "error",
         "react/no-array-index-key": "error",
         "react/jsx-sort-props": "error",
-        "no-useless-computed-key": "error"
+        "no-useless-computed-key": "error",
+        "@typescript-eslint/no-var-requires": "off"
     },
     env: {
         es6: true,

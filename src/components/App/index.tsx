@@ -1,39 +1,29 @@
 import React, { Fragment } from "react";
-import { Provider } from "react-redux";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
+import injectSheet, { WithSheet, StyleCreator } from "react-jss";
 
+import Home from "pages/Home";
+import TopTracks from "pages/TopTracks";
+import TrackPage from "pages/TrackPage";
 import Header from "components/Header";
-import Main from "components/Main";
-import TrackList from "components/TrackList";
-import Track from "components/Track";
+import Theme from "types/theme";
+import styles from "./styles";
 
-import store from "store/.";
-import "less/index.less";
+function App(props: WithSheet<StyleCreator<string, Theme>>): JSX.Element {
+    const { classes } = props;
 
-function App() {
     return (
-        <Provider store={store}>
-            <BrowserRouter>
-                <Fragment>
-                    <Header />
-                    <main>
-                        <Switch>
-                            <Route path="/" exact component={Main} />
-                            <Route
-                                path="/tracks"
-                                exact
-                                component={TrackList}
-                            />
-                            <Route
-                                path="/tracks/:id"
-                                component={Track}
-                            />
-                        </Switch>
-                    </main>
-                </Fragment>
-            </BrowserRouter>
-        </Provider>
+        <Fragment>
+            <Header />
+            <main className={classes.main}>
+                <Switch>
+                    <Route component={Home} exact path="/" />
+                    <Route component={TopTracks} exact path="/tracks" />
+                    <Route component={TrackPage} path="/tracks/:id" />
+                </Switch>
+            </main>
+        </Fragment>
     );
 }
 
-export default App;
+export default injectSheet(styles)(App);

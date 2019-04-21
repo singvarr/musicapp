@@ -15,12 +15,11 @@ module.exports = {
         alias: {
             assets: path.join(PROJECT_ROOT, "src", "assets"),
             store: path.join(PROJECT_ROOT, "src", "store"),
-            actions: path.join(PROJECT_ROOT, "src", "store", "actions"),
-            constants: path.join(PROJECT_ROOT, "src", "store", "constants"),
-            reducers: path.join(PROJECT_ROOT, "src", "store", "reducers"),
             components: path.join(PROJECT_ROOT, "src", "components"),
+            pages: path.join(PROJECT_ROOT, "src", "pages"),
+            fixtures: path.join(PROJECT_ROOT, "src", "fixtures"),
             types: path.join(PROJECT_ROOT, "src", "types"),
-            less: path.join(PROJECT_ROOT, "src", "less")
+            style: path.join(PROJECT_ROOT, "src", "style")
         }
     },
     module: {
