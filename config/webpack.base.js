@@ -14,6 +14,7 @@ module.exports = {
         extensions: [".ts", ".tsx", ".jsx", ".js", ".json"],
         alias: {
             assets: path.join(PROJECT_ROOT, "src", "assets"),
+            lang: path.join(PROJECT_ROOT, "src", "lang"),
             store: path.join(PROJECT_ROOT, "src", "store"),
             components: path.join(PROJECT_ROOT, "src", "components"),
             pages: path.join(PROJECT_ROOT, "src", "pages"),
