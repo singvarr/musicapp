@@ -1,4 +1,5 @@
 import React from "react";
+import { FormattedMessage } from "react-intl";
 import injectSheet, { WithSheet, StyleCreator } from "react-jss";
 import Navigation from "components/Navigation";
 import styles from "./styles";
@@ -11,7 +12,7 @@ function Header(props: WithSheet<StyleCreator<string, Theme>>): JSX.Element {
         <header className={classes.wrapper}>
             <div className={classes.logoWrapper}>
                 <img alt="logo" className={classes.logo} src="/img/logo.png" />
-                New Radio
+                <FormattedMessage id="header.title" />
             </div>
             <Navigation />
             <a
@@ -20,7 +21,7 @@ function Header(props: WithSheet<StyleCreator<string, Theme>>): JSX.Element {
                 rel="noopener noreferrer"
                 target="_blank"
             >
-                Donate
+                <FormattedMessage id="header.donate" />
             </a>
         </header>
     );

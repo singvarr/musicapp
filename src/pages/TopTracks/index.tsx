@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { compose } from "recompose";
+import { FormattedMessage } from "react-intl";
 import { ThunkDispatch } from "redux-thunk";
 import { Action } from "redux";
 import injectSheet, { WithSheet, StyleCreator } from "react-jss";
@@ -39,11 +40,15 @@ class TopTracks extends Component<TopTracksProps> {
                         classes.errorMessage
                     )}
                 >
-                    Sorry, error occurred. Please, try again later
+                    <FormattedMessage id="search.error" />
                 </div>
             );
         } else if (isLoading) {
-            return <div className={classes.statusMessage}>Loading...</div>;
+            return (
+                <div className={classes.statusMessage}>
+                    <FormattedMessage id="search.loading" />
+                </div>
+            );
         }
 
         return (

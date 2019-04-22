@@ -2,12 +2,12 @@ const menu = [
     {
         exact: true,
         linkTo: "/",
-        name: "Home"
+        name: "menu.home"
     },
     {
         exact: false,
         linkTo: "/tracks",
-        name: "Tracks"
+        name: "menu.tracks"
     }
 ];
 
