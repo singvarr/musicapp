@@ -4,6 +4,7 @@ import injectSheet, { WithSheet, StyleCreator } from "react-jss";
 import menu from "fixtures/navigation";
 import Theme from "types/theme";
 import styles from "./styles";
+import { FormattedMessage } from "react-intl";
 
 function Navigation(props): JSX.Element {
     const { classes } = props;
@@ -20,7 +21,7 @@ function Navigation(props): JSX.Element {
                                 exact={link.exact}
                                 to={link.linkTo}
                             >
-                                {link.name}
+                                <FormattedMessage id={link.name} />
                             </NavLink>
                         </li>
                     )

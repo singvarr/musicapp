@@ -2,6 +2,8 @@ import React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+import { IntlProvider, addLocaleData } from "react-intl";
+import en from "react-intl/locale-data/en";
 import { ThemeProvider } from "react-jss";
 
 import jss from "jss";
@@ -12,18 +14,23 @@ import camelCase from "jss-plugin-camel-case";
 
 import App from "components/App";
 import store from "store/.";
+import messages from "lang/.";
 import theme from "style/theme";
 
 jss.use(defaultUnit({}), vendorPrefixer(), globals(), camelCase());
 
+addLocaleData(en);
+
 function renderApp(): void {
     render(
         <Provider store={store}>
-            <ThemeProvider theme={theme}>
-                <BrowserRouter>
-                    <App />
-                </BrowserRouter>
-            </ThemeProvider>
+            <IntlProvider locale="en" messages={messages}>
+                <ThemeProvider theme={theme}>
+                    <BrowserRouter>
+                        <App />
+                    </BrowserRouter>
+                </ThemeProvider>
+            </IntlProvider>
         </Provider>,
         document.getElementById("root")
     );
