@@ -1,6 +1,13 @@
+# IDE folders
 .idea
 .vscode
+
+# Dependencies
 node_modules
+
+# Project output
 dist
-.env
 .next
+
+# Project settings
+.env
