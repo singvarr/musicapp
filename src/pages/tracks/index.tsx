@@ -15,18 +15,16 @@ import Theme from "types/theme";
 import styles from "./styles";
 
 interface TopTracksProps
-    extends FetchStatus, WithSheet<StyleCreator<string, Theme>> {
+    extends FetchStatus,
+    WithSheet<StyleCreator<string, Theme>> {
     onGetTracks: () => GetTracksResult;
     data: TrackType[];
 }
 
 class TopTracks extends Component<TopTracksProps> {
-    public componentDidMount(): void {
-        const { data, onGetTracks } = this.props;
-
-        if (!data.length) {
-            onGetTracks();
-        }
+    public static getInitialProps(context): Promise<GetTracksResult> {
+        const { store } = context;
+        return store.dispatch(getTracks());
     }
 
     public render(): JSX.Element {
@@ -80,18 +78,7 @@ function mapStateToProps(state: State): TracksState {
     };
 }
 
-function mapDispatchToProps(
-    dispatch: ThunkDispatch<State, null, Action<string>>
-): { onGetTracks: () => GetTracksResult } {
-    return {
-        onGetTracks: (): GetTracksResult => dispatch(getTracks())
-    };
-}
-
 export default compose(
-    connect(
-        mapStateToProps,
-        mapDispatchToProps
-    ),
+    connect(mapStateToProps),
     injectSheet(styles)
 )(TopTracks);
