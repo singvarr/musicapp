@@ -1,3 +1,4 @@
+import axios from "axios";
 import { action } from "typesafe-actions";
 import { TracksAction, TracksState, GetTracks } from "types/state";
 import TrackType from "types/track";
@@ -18,10 +19,13 @@ export const getTracksError = () => action(GET_TRACKS_ERROR);
 export const getTracks = (): GetTracks => dispatch => {
     dispatch(getTracksLoading());
 
-    return fetch(`${PROXY_URL}${TOP_TRACKS_URL}`, { mode: "cors" })
-        .then(res => res.json())
-        .then(data => dispatch(getTracksSuccess(data.feed.results)))
-        .catch(() => dispatch(getTracksError()));
+    return axios
+        .get(`${PROXY_URL}${TOP_TRACKS_URL}`)
+        .then(data => {
+            console.log(data.data.feed.results);
+            return dispatch(getTracksSuccess(data.data.feed.results))
+        })
+        .catch((err) => {console.log(err);dispatch(getTracksError())});
 };
 
 const initialState: TracksState = {
