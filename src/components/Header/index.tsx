@@ -11,7 +11,11 @@ function Header(props: WithSheet<StyleCreator<string, Theme>>): JSX.Element {
     return (
         <header className={classes.wrapper}>
             <div className={classes.logoWrapper}>
-                <img alt="logo" className={classes.logo} src="/img/logo.png" />
+                <img
+                    alt="logo"
+                    className={classes.logo}
+                    src="/static/img/logo.png"
+                />
                 <FormattedMessage id="header.title" />
             </div>
             <Navigation />
