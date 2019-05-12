@@ -10,6 +10,7 @@
   "author": "Ihor Sokolov",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "color": "^3.1.0",
     "dotenv": "^7.0.0",
@@ -19,6 +20,7 @@
     "jss-plugin-global": "^10.0.0-alpha.7",
     "jss-plugin-vendor-prefixer": "^10.0.0-alpha.7",
     "next": "^8.1.0",
+    "next-redux-wrapper": "^3.0.0-alpha.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-intl": "^2.8.0",
