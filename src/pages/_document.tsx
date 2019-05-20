@@ -14,30 +14,6 @@ class CustomDocument extends Document {
     public static async getInitialProps(ctx): Promise<any> {
         const registry = new SheetsRegistry();
 
-        const globalStyles = jss
-            .createStyleSheet(
-                {
-                    "@global body": {
-                        margin: 0,
-                        padding: 0
-                    },
-                    "@global ul": {
-                        padding: 0,
-                        margin: 0,
-                        listStyle: "none"
-                    },
-                    "@global a": {
-                        textDecoration: "none"
-                    }
-                },
-                {
-                    index: 1,
-                    meta: "globals"
-                }
-            )
-            .attach();
-        registry.add(globalStyles);
-
         const generateId = createGenerateId();
         const originalRenderPage = ctx.renderPage;
 

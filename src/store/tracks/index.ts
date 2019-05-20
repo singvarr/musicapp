@@ -20,12 +20,16 @@ export const getTracks = (): GetTracks => dispatch => {
     dispatch(getTracksLoading());
 
     return axios
-        .get(`${PROXY_URL}${TOP_TRACKS_URL}`)
-        .then(data => {
-            console.log(data.data.feed.results);
-            return dispatch(getTracksSuccess(data.data.feed.results))
+        .get(`${PROXY_URL}${TOP_TRACKS_URL}`, {
+            headers: {
+                "X-Requested-With": "localhost"
+            }
         })
-        .catch((err) => {console.log(err);dispatch(getTracksError())});
+        .then(data => dispatch(getTracksSuccess(data.data.feed.results)))
+        .catch(err => {
+            console.error(err);
+            dispatch(getTracksError());
+        });
 };
 
 const initialState: TracksState = {

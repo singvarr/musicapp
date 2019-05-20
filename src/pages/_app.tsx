@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import App, { Container } from "next/app";
 import { Provider } from "react-redux";
 import withRedux from "next-redux-wrapper";
@@ -6,11 +6,9 @@ import { IntlProvider, addLocaleData } from "react-intl";
 import en from "react-intl/locale-data/en";
 import { ThemeProvider } from "react-jss";
 
-
-import store from "store/.";
+import store, { makeStore } from "store/.";
 import messages from "../lang/.";
 import theme from "../style/theme";
-
 
 addLocaleData(en);
 
@@ -41,9 +39,7 @@ class MyApp extends App {
                 <Provider store={store}>
                     <IntlProvider locale="en" messages={messages}>
                         <ThemeProvider theme={theme}>
-                            <Fragment>
-                                <Component {...pageProps} />
-                            </Fragment>
+                            <Component {...pageProps} />
                         </ThemeProvider>
                     </IntlProvider>
                 </Provider>
@@ -52,4 +48,4 @@ class MyApp extends App {
     }
 }
 const options = { debug: true };
-export default withRedux((initialState, options) => store)(MyApp);
+export default withRedux(makeStore)(MyApp);

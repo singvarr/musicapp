@@ -16,7 +16,7 @@ function TrackCard(props: TrackCardProps): JSX.Element {
 
     return (
         <div className={classes.track}>
-            <Link  href={`tracks/${props.artistId}`}>
+            <Link href={`tracks/${props.artistId}`}>
                 <a className={classes.link}>
                     <div className={classes.imageContainer}>
                         <img
@@ -33,8 +33,8 @@ function TrackCard(props: TrackCardProps): JSX.Element {
                 <div className={classes.performer}>{props.artistName}</div>
                 <ul className={classes.genres}>
                     {props.genres.map(
-                        (genre): JSX.Element => (
-                            <li className={classes.genre} key={genre.name}>
+                        (genre, i): JSX.Element => (
+                            <li className={classes.genre} key={i}>
                                 {genre.name}
                             </li>
                         )

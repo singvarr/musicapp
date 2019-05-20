@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { compose } from "recompose";
 import { FormattedMessage } from "react-intl";
-import { ThunkDispatch } from "redux-thunk";
-import { Action } from "redux";
-import injectSheet, { WithSheet, StyleCreator } from "react-jss";
+import injectSheet from "react-jss";
 import classnames from "classnames";
 
 import TrackCard from "components/TrackCard";
@@ -13,10 +11,10 @@ import State, { FetchStatus, GetTracksResult, TracksState } from "types/state";
 import TrackType from "types/track";
 import Theme from "types/theme";
 import styles from "./styles";
+import MainLayout from "layouts/MainLayout";
 
 interface TopTracksProps
-    extends FetchStatus,
-    WithSheet<StyleCreator<string, Theme>> {
+    extends FetchStatus {
     onGetTracks: () => GetTracksResult;
     data: TrackType[];
 }
@@ -50,21 +48,23 @@ class TopTracks extends Component<TopTracksProps> {
         }
 
         return (
-            <section>
-                <div className={classes.trackList}>
-                    {data.map(
-                        (item, i): JSX.Element => {
-                            return (
-                                <TrackCard
-                                    key={item.name}
-                                    position={++i}
-                                    {...item}
-                                />
-                            );
-                        }
-                    )}
-                </div>
-            </section>
+            <MainLayout>
+                <section>
+                    <div className={classes.trackList}>
+                        {data.map(
+                            (item, i): JSX.Element => {
+                                return (
+                                    <TrackCard
+                                        key={++i}
+                                        position={++i}
+                                        {...item}
+                                    />
+                                );
+                            }
+                        )}
+                    </div>
+                </section>
+            </MainLayout>
         );
     }
 }
