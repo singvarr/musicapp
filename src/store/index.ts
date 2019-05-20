@@ -1,12 +1,12 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
+import { createStore, combineReducers, applyMiddleware, Store } from "redux";
 import thunk from "redux-thunk";
 import tracks from "store/tracks";
-
-export const initialState = { tracks: { data: [], isError: false, isLoading: false } };
+import State from "types/state";
 
 export const reducer = combineReducers({ tracks });
-export const makeStore = (initialState, reducer) =>
-    createStore(reducer, initialState, applyMiddleware(thunk));
-const store = createStore(reducer, applyMiddleware(thunk));
 
-export default store;
+const opts = { debug: true };
+export const makeStore = (initialState: State, options = opts): Store =>
+    createStore(reducer, initialState, applyMiddleware(thunk));
+
+export default makeStore;

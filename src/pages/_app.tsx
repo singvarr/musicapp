@@ -6,7 +6,7 @@ import { IntlProvider, addLocaleData } from "react-intl";
 import en from "react-intl/locale-data/en";
 import { ThemeProvider } from "react-jss";
 
-import store, { makeStore } from "store/.";
+import makeStore from "store/.";
 import messages from "../lang/.";
 import theme from "../style/theme";
 
@@ -47,5 +47,5 @@ class MyApp extends App {
         );
     }
 }
-const options = { debug: true };
+
 export default withRedux(makeStore)(MyApp);

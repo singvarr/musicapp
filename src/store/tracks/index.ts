@@ -26,10 +26,7 @@ export const getTracks = (): GetTracks => dispatch => {
             }
         })
         .then(data => dispatch(getTracksSuccess(data.data.feed.results)))
-        .catch(err => {
-            console.error(err);
-            dispatch(getTracksError());
-        });
+        .catch(err => dispatch(getTracksError()));
 };
 
 const initialState: TracksState = {

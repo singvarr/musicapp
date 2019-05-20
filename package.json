@@ -36,6 +36,7 @@
     "@types/color": "^3.0.0",
     "@types/jss": "^9.5.8",
     "@types/next": "^8.0.5",
+    "@types/next-redux-wrapper": "^2.0.2",
     "@types/react": "^16.8.13",
     "@types/react-dom": "^16.8.4",
     "@types/react-intl": "^2.3.17",
