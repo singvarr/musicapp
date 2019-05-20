@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
 import Document from "next/document";
 
-import { SheetsRegistry, JssProvider, createGenerateId, jss } from "react-jss";
+import jss, { createGenerateId } from "jss";
+import { SheetsRegistry, JssProvider } from "react-jss";
 import defaultUnit from "jss-plugin-default-unit";
 import vendorPrefixer from "jss-plugin-vendor-prefixer";
 import globals from "jss-plugin-global";
 import camelCase from "jss-plugin-camel-case";
-import styles from "style/global";
 
 jss.use(defaultUnit({}), vendorPrefixer(), globals(), camelCase());
 

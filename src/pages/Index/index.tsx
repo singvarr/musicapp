@@ -1,11 +1,15 @@
-import React from "react";
+import React, { Fragment } from "react";
+import Head from "components/Head";
 import MainLayout from "layouts/MainLayout";
 
 function Home(): JSX.Element {
     return (
-        <MainLayout>
-            <section>This is home page</section>
-        </MainLayout>
+        <Fragment>
+            <Head title="Home" />
+            <MainLayout>
+                <section>This is home page</section>
+            </MainLayout>
+        </Fragment>
     );
 }
 
