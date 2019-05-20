@@ -1,10 +1,15 @@
 import React, { Fragment } from "react";
-import injectSheet from "react-jss";
+import injectSheet, { WithStyles } from "react-jss";
 import Header from "components/Header";
 import styles from "./styles";
 
-function MainLayout(props): JSX.Element {
+interface MainLayoutInterface extends WithStyles<any> {
+    children: Element;
+}
+
+function MainLayout(props: MainLayoutInterface): JSX.Element {
     const { children, classes } = props;
+
     return (
         <Fragment>
             <Header />
