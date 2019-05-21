@@ -3,9 +3,8 @@ import { action } from "typesafe-actions";
 import { TracksAction, TracksState, GetTracks } from "types/state";
 import TrackType from "types/track";
 
+const { API_BASE, HOST } = process.env;
 const PROXY_URL = "https://cors-anywhere.herokuapp.com/";
-const TOP_TRACKS_URL =
-    "https://rss.itunes.apple.com/api/v1/ua/itunes-music/top-songs/all/100/explicit.json";
 
 const GET_TRACKS_LOADING = "GET_TRACKS_LOADING";
 const GET_TRACKS_SUCCESS = "GET_TRACKS_SUCCESS";
@@ -20,13 +19,13 @@ export const getTracks = (): GetTracks => dispatch => {
     dispatch(getTracksLoading());
 
     return axios
-        .get(`${PROXY_URL}${TOP_TRACKS_URL}`, {
+        .get(`${PROXY_URL}${API_BASE}`, {
             headers: {
-                "X-Requested-With": "localhost"
+                "X-Requested-With": HOST
             }
         })
-        .then(data => dispatch(getTracksSuccess(data.data.feed.results)))
-        .catch(err => dispatch(getTracksError()));
+        .then(res => dispatch(getTracksSuccess(res.data.feed.results)))
+        .catch(() => dispatch(getTracksError()));
 };
 
 const initialState: TracksState = {
