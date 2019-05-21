@@ -6,7 +6,6 @@
 node_modules
 
 # Project output
-dist
 .next
 
 # Project settings

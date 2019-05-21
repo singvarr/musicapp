@@ -1,6 +1,7 @@
 const path = require("path");
 const withTypescript = require("@zeit/next-typescript");
 const dotenv = require("dotenv-webpack");
+require("dotenv").config();
 
 module.exports = withTypescript({
     pageExtensions: ["tsx", "jsx", "js", "ts"],
@@ -13,7 +14,12 @@ module.exports = withTypescript({
         config.resolve.alias["types"] = path.join(__dirname, "types");
         config.resolve.alias["layouts"] = path.join(__dirname, "layouts");
 
-        config.plugins = [...config.plugins, new dotenv({ systemvars: true })];
+        config.plugins = config.plugins || [];
+
+        config.plugins = [
+            ...config.plugins,
+            new dotenv({ path: path.join(__dirname, ".env"), systemvars: true })
+        ];
 
         return config;
     }

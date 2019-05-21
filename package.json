@@ -4,8 +4,8 @@
   "description": "app for music search",
   "main": "src/index.tsx",
   "scripts": {
-    "build": "cd ./src & next build",
-    "start": "cd ./src & next"
+    "build": "next build",
+    "start": "next"
   },
   "author": "Ihor Sokolov",
   "license": "ISC",

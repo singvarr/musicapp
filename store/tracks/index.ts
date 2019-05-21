@@ -3,7 +3,6 @@ import { action } from "typesafe-actions";
 import { TracksAction, TracksState, GetTracks } from "types/state";
 import TrackType from "types/track";
 
-const { API_BASE, HOST } = process.env;
 const PROXY_URL = "https://cors-anywhere.herokuapp.com/";
 
 const GET_TRACKS_LOADING = "GET_TRACKS_LOADING";
@@ -19,9 +18,9 @@ export const getTracks = (): GetTracks => dispatch => {
     dispatch(getTracksLoading());
 
     return axios
-        .get(`${PROXY_URL}${API_BASE}`, {
+        .get(`${PROXY_URL}${process.env.API_BASE}`, {
             headers: {
-                "X-Requested-With": HOST
+                "X-Requested-With": process.env.HOST
             }
         })
         .then(res => dispatch(getTracksSuccess(res.data.feed.results)))
