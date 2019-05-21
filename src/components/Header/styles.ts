@@ -1,7 +1,6 @@
 import Theme from "types/theme";
-import { Styles } from "react-jss";
 
-const styles = (theme: Theme): Styles => ({
+const styles = (theme: Theme) => ({
     wrapper: {
         position: "fixed",
         zIndex: 100,
@@ -16,9 +15,12 @@ const styles = (theme: Theme): Styles => ({
         backgroundColor: theme.backgroundColor
     },
     logoWrapper: {
-        marginLeft: 40,
+        marginLeft: 30,
+        maxWidth: 250,
         fontFamily: theme.headingFont,
-        fontSize: 40
+        fontSize: 40,
+        color: theme.textColor,
+        textDecoration: "none"
     },
     logo: {
         width: "auto",
@@ -26,6 +28,9 @@ const styles = (theme: Theme): Styles => ({
     },
     donateLink: {
         position: "relative",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         alignSelf: "center",
         height: 30,
         marginRight: 25,
@@ -35,7 +40,7 @@ const styles = (theme: Theme): Styles => ({
         fontSize: 24,
         borderRadius: 5,
         color: theme.textColor,
-        textDecoration: null,
+        textDecoration: "none",
         "&:hover": {
             color: theme.accentColor,
             borderColor: theme.accentColor

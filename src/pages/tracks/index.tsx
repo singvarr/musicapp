@@ -2,7 +2,7 @@ import React, { Fragment, Component } from "react";
 import { connect } from "react-redux";
 import { compose } from "recompose";
 import { FormattedMessage } from "react-intl";
-import injectSheet from "react-jss";
+import withStyles, { WithStyles } from "react-jss";
 import classnames from "classnames";
 
 import TrackCard from "components/TrackCard";
@@ -13,7 +13,7 @@ import styles from "./styles";
 import MainLayout from "layouts/MainLayout";
 import Head from "components/Head";
 
-interface TopTracksProps extends FetchStatus {
+interface TopTracksProps extends FetchStatus, WithStyles<typeof styles> {
     onGetTracks: () => GetTracksResult;
     data: TrackType[];
 }
@@ -21,6 +21,7 @@ interface TopTracksProps extends FetchStatus {
 class TopTracks extends Component<TopTracksProps> {
     public static getInitialProps(context): Promise<GetTracksResult> {
         const { store } = context;
+        if (store.getState().tracks.data.length) return;
         return store.dispatch(getTracks());
     }
 
@@ -82,5 +83,5 @@ function mapStateToProps(state: State): TracksState {
 
 export default compose(
     connect(mapStateToProps),
-    injectSheet(styles)
+    withStyles(styles)
 )(TopTracks);

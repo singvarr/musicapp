@@ -1,23 +1,25 @@
 import React from "react";
+import Link from "next/link";
 import { FormattedMessage } from "react-intl";
-import injectSheet, { WithSheet, StyleCreator } from "react-jss";
+import withStyles, { WithStyles } from "react-jss";
 import Navigation from "components/Navigation";
 import styles from "./styles";
-import Theme from "types/theme";
 
-function Header(props: WithSheet<StyleCreator<string, Theme>>): JSX.Element {
+function Header(props: WithStyles<typeof styles>): JSX.Element {
     const { classes } = props;
 
     return (
         <header className={classes.wrapper}>
-            <div className={classes.logoWrapper}>
-                <img
-                    alt="logo"
-                    className={classes.logo}
-                    src="/static/img/logo.png"
-                />
-                <FormattedMessage id="header.title" />
-            </div>
+            <Link href="/">
+                <a className={classes.logoWrapper}>
+                    <img
+                        alt="logo"
+                        className={classes.logo}
+                        src="/static/img/logo.png"
+                    />
+                    <FormattedMessage id="header.title" />
+                </a>
+            </Link>
             <Navigation />
             <a
                 className={classes.donateLink}
@@ -31,4 +33,4 @@ function Header(props: WithSheet<StyleCreator<string, Theme>>): JSX.Element {
     );
 }
 
-export default injectSheet(styles)(Header);
+export default withStyles(styles)(Header);

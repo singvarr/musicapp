@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
-import injectSheet, { WithStyles } from "react-jss";
+import withStyles, { WithStyles } from "react-jss";
 import Header from "components/Header";
 import styles from "./styles";
 
-interface MainLayoutInterface extends WithStyles<any> {
-    children: Element;
+interface MainLayoutInterface extends WithStyles<typeof styles> {
+    children: JSX.Element;
 }
 
 function MainLayout(props: MainLayoutInterface): JSX.Element {
@@ -18,4 +18,4 @@ function MainLayout(props: MainLayoutInterface): JSX.Element {
     );
 }
 
-export default injectSheet(styles)(MainLayout);
+export default withStyles(styles)(MainLayout);

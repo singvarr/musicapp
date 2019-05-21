@@ -1,13 +1,10 @@
 import React from "react";
 import Link from "next/link";
-import injectSheet, { WithSheet, StyleCreator } from "react-jss";
+import withStyles, { WithStyles } from "react-jss";
 import TrackType from "types/track";
-import Theme from "types/theme";
 import styles from "./styles";
 
-interface TrackCardProps
-    extends TrackType,
-        WithSheet<StyleCreator<string, Theme>> {
+interface TrackCardProps extends TrackType, WithStyles<typeof styles> {
     position: number;
 }
 
@@ -45,4 +42,4 @@ function TrackCard(props: TrackCardProps): JSX.Element {
     );
 }
 
-export default injectSheet(styles)(TrackCard);
+export default withStyles(styles)(TrackCard);
