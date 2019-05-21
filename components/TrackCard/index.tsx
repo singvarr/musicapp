@@ -1,12 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import injectSheet, { WithSheet, StyleCreator } from "react-jss";
+import Link from "next/link";
+import withStyles, { WithStyles } from "react-jss";
 import TrackType from "types/track";
-import Theme from "types/theme";
 import styles from "./styles";
 
-interface TrackCardProps
-    extends TrackType, WithSheet<StyleCreator<string, Theme>> {
+interface TrackCardProps extends TrackType, WithStyles<typeof styles> {
     position: number;
 }
 
@@ -15,10 +13,15 @@ function TrackCard(props: TrackCardProps): JSX.Element {
 
     return (
         <div className={classes.track}>
-            <Link className={classes.link} to={`tracks/${props.artistId}`}>
-                <div className={classes.imageContainer}>
-                    <img className={classes.image} src={props.artworkUrl100} />
-                </div>
+            <Link href={`tracks/${props.artistId}`}>
+                <a className={classes.link}>
+                    <div className={classes.imageContainer}>
+                        <img
+                            className={classes.image}
+                            src={props.artworkUrl100}
+                        />
+                    </div>
+                </a>
             </Link>
             <div>
                 <div className={classes.title}>
@@ -27,8 +30,8 @@ function TrackCard(props: TrackCardProps): JSX.Element {
                 <div className={classes.performer}>{props.artistName}</div>
                 <ul className={classes.genres}>
                     {props.genres.map(
-                        (genre): JSX.Element => (
-                            <li className={classes.genre} key={genre.name}>
+                        (genre, i): JSX.Element => (
+                            <li className={classes.genre} key={i}>
                                 {genre.name}
                             </li>
                         )
@@ -39,4 +42,4 @@ function TrackCard(props: TrackCardProps): JSX.Element {
     );
 }
 
-export default injectSheet(styles)(TrackCard);
+export default withStyles(styles)(TrackCard);
